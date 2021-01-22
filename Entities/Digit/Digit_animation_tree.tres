@@ -1,0 +1,112 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=32 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "falling"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "floor_splat"
+
+[sub_resource type="AnimationNodeTimeScale" id=3]
+
+[sub_resource type="AnimationNodeBlendTree" id=4]
+nodes/Animation/node = SubResource( 2 )
+nodes/Animation/position = Vector2( 60, 100 )
+nodes/TimeScale/node = SubResource( 3 )
+nodes/TimeScale/position = Vector2( 320, 100 )
+nodes/output/position = Vector2( 560, 120 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "land"
+
+[sub_resource type="AnimationNodeAdd2" id=8]
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "run"
+
+[sub_resource type="AnimationNodeTimeScale" id=10]
+
+[sub_resource type="AnimationNodeBlendTree" id=11]
+nodes/Add2/node = SubResource( 8 )
+nodes/Add2/position = Vector2( 40, 120 )
+nodes/Animation/node = SubResource( 9 )
+nodes/Animation/position = Vector2( 220, 160 )
+nodes/TimeScale/node = SubResource( 10 )
+nodes/TimeScale/position = Vector2( 440, 140 )
+nodes/output/position = Vector2( 660, 140 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "start_falling"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "start_run"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "wall_splat"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[resource]
+states/falling/node = SubResource( 1 )
+states/falling/position = Vector2( 126, 148 )
+states/floor_splat/node = SubResource( 4 )
+states/floor_splat/position = Vector2( 197, -38.9775 )
+states/idle/node = SubResource( 5 )
+states/idle/position = Vector2( 440, 148 )
+states/jump/node = SubResource( 6 )
+states/jump/position = Vector2( 434, 339 )
+states/land/node = SubResource( 7 )
+states/land/position = Vector2( 291, 148 )
+states/run/node = SubResource( 11 )
+states/run/position = Vector2( 637, 334 )
+states/start_falling/node = SubResource( 12 )
+states/start_falling/position = Vector2( 118, 326 )
+states/start_run/node = SubResource( 13 )
+states/start_run/position = Vector2( 637, 148 )
+states/wall_splat/node = SubResource( 14 )
+states/wall_splat/position = Vector2( 451, -38.9775 )
+transitions = [ "idle", "start_run", SubResource( 15 ), "start_run", "jump", SubResource( 16 ), "idle", "start_falling", SubResource( 17 ), "start_falling", "falling", SubResource( 18 ), "idle", "jump", SubResource( 19 ), "start_falling", "jump", SubResource( 20 ), "start_run", "run", SubResource( 21 ), "run", "idle", SubResource( 22 ), "run", "jump", SubResource( 23 ), "falling", "land", SubResource( 24 ), "falling", "jump", SubResource( 25 ), "jump", "idle", SubResource( 26 ), "land", "idle", SubResource( 27 ), "falling", "wall_splat", SubResource( 28 ), "idle", "wall_splat", SubResource( 29 ), "falling", "floor_splat", SubResource( 30 ), "idle", "floor_splat", SubResource( 31 ) ]
+start_node = "idle"
+graph_offset = Vector2( -92, -111.196 )

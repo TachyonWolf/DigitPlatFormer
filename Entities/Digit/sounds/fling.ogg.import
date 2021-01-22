@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fling.ogg-657245525f2b5972641b5202d3af0337.oggstr"
+
+[deps]
+
+source_file="res://Entities/Digit/sounds/fling.ogg"
+dest_files=[ "res://.import/fling.ogg-657245525f2b5972641b5202d3af0337.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

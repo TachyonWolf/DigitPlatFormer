@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Digit/DigitBall.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Digit/DigitSprite.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 4.1, 4.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 84, 84, 85, 84 ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.0
+
+[node name="DigitBall" type="KinematicBody2D"]
+script = ExtResource( 1 )
+run_speed = 300.0
+air_acceleration = 200.0
+air_deceleration = 200.0
+jumping_gravity_multiplier = 1.0
+elasticity = 0.9
+min_bounce = 250.0
+bounce_on_walls = true
+reset_jumps_on_bounce = true
+
+[node name="Sprite" parent="." instance=ExtResource( 2 )]
+frame = 84
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

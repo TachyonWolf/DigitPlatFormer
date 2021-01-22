@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Entities/MouseKnight/MouseKnight2.png" type="Texture" id=1]
+[ext_resource path="res://Entities/KinematicPlatformerController2D.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.66185
+height = 8.97382
+
+[sub_resource type="RayShape2D" id=2]
+length = 13.855
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "Stand",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 4.0
+} ]
+
+[node name="MouseKnight" type="KinematicBody2D"]
+position = Vector2( 0, -1 )
+script = ExtResource( 2 )
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4.62645 )
+shape = SubResource( 1 )
+
+[node name="CollisionRay" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 7 )
+animation = "Stand"
+playing = true
