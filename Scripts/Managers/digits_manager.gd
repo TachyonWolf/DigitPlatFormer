@@ -26,6 +26,7 @@ func remove_digit(digit : Node2D):
 
 func clear_digits():
 	digits = []
+	current = null
 
 func _process(delta):
 	if(Input.is_action_just_pressed("next_digit")):
@@ -41,15 +42,16 @@ func _process(delta):
 		var selected_digit = digits[current_num]
 		current = selected_digit
 		emit_signal("digit_focused", selected_digit)
+		
 	elif(Input.is_action_just_pressed("prev_digit")):
 		if(digits.size() == 0):
 			return
 		if(digits.size() > 0 && !current):
 			current = digits[0]
-		var current_num = digits.find(current)
+		var current_num = digits.find(current,0)
 		current_num -= 1
 		var count = digits.size()
-		if(current_num <= 0):
+		if(current_num < 0):
 			current_num = count - 1
 		var selected_digit = digits[current_num]
 		current = selected_digit

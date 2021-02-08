@@ -3,9 +3,9 @@
 [ext_resource path="res://Entities/ConveyorBelt/ConveyorBelt.gd" type="Script" id=1]
 [ext_resource path="res://Entities/ConveyorBelt/ConveyorBelt.tres" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 80, 8 )
+extents = Vector2( 0, 8 )
 
 [node name="ConveyorBelt" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,4 +17,4 @@ constant_linear_velocity = Vector2( 10, 0 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )

@@ -4,9 +4,9 @@ var roll_speed = 20
 
 func _ready():
 	listen_to_input = false
-	DigitsManager.add_digit(self)
 	connect("on_bounce", self, "bounce")
 	DigitsManager.connect("digit_focused", self, "digit_selected")
+	DigitsManager.add_digit(self)
 
 func bounce(velocity):
 	roll_speed = abs(velocity.length() / 10)
